@@ -1,6 +1,6 @@
 #pragma once
 /*
-å­—ç¬¦ä¸²é‡Œé¢çš„å­—ç¬¦åªæœ‰è‹±æ–‡å­—æ¯(å¤§å°å†™)ï¼Œæ•°å­—ï¼Œè‹±æ–‡çš„æ ‡ç‚¹ç¬¦å·(,.?!-:"'ä»¥åŠç©ºæ ¼å­—ç¬¦)
+×Ö·û´®ÀïÃæµÄ×Ö·ûÖ»ÓĞÓ¢ÎÄ×ÖÄ¸(´óĞ¡Ğ´)£¬Êı×Ö£¬Ó¢ÎÄµÄ±êµã·ûºÅ(,.?!-:"'ÒÔ¼°¿Õ¸ñ×Ö·û)
 */
 
 #pragma once
@@ -14,11 +14,10 @@ typedef struct BST
 	struct BST *lchild, *rchild;
 }BSN, *BSTRee1;
 
-//void init_BST(BSTRee1 &Tree);					      //åˆå§‹åŒ–
-void insertBSTree(BSTRee1 &Tree, string str);	//å°†å­—ç¬¦ä¸²stræ’å…¥äºŒå‰æ’åºæ ‘
-bool serchBSTree(BSTRee1 Tree, string str);	  //æŸ¥æ‰¾äºŒå‰æ’åºæ ‘ä¸­æ˜¯å¦æœ‰å…³é”®å­—ä¸ºstrçš„å…ƒç´ 
-BSTRee1 ParentNode(BSTRee1 Tree, string str);	//è¿”å›å…³é”®å­—ä¸ºstrå…ƒç´ çš„çˆ¶èŠ‚ç‚¹
-bool isCharacter(char c);					            //åˆ¤æ–­æ˜¯å¦ä¸ºè‹±æ–‡å­—æ¯
-void cToString(BSTRee1 &Tree, string str);		//å°†è¾“å…¥çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºä¸€ä¸ªä¸€ä¸ªå°çš„å­—ç¬¦ä¸²
-void visit(BSN *pNode);
-void preTraversalBSTR(BSTRee1 Tree);
+void insertBSTree(BSTRee1 &Tree, string str);	//½«×Ö·û´®str²åÈë¶ş²æÅÅĞòÊ÷
+bool serchBSTree(BSTRee1 Tree, string str);		//²éÕÒ¶ş²æÅÅĞòÊ÷ÖĞÊÇ·ñÓĞ¹Ø¼ü×ÖÎªstrµÄÔªËØ
+BSTRee1 ParentNode(BSTRee1 Tree, string str);	//·µ»Ø¹Ø¼ü×ÖÎªstrÔªËØµÄ¸¸½Úµã
+bool isCharacter(char c);						//ÅĞ¶ÏÊÇ·ñÎªÓ¢ÎÄ×ÖÄ¸
+void cToString(BSTRee1 &Tree, string str);		//½«ÊäÈëµÄ×Ö·û´®×ª»»ÎªÒ»¸öÒ»¸öĞ¡µÄ×Ö·û´®
+void visit(BSN *pNode);							//·ÃÎÊÃ¿Ò»¸ö½Úµã£¬²¢½«½ÚµãĞÅÏ¢Â¼ÈëÎÄ¼şÖĞ
+void preTraversalBSTR(BSTRee1 Tree);			//ÏÈĞò±éÀú¶ş²æÅÅĞòÊ÷

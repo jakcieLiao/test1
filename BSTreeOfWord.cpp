@@ -1,9 +1,9 @@
 #include "BSTreeOfWord.h"
 
 //*******************************************************
-//å¯¹å­—ç¬¦ä¸²è¿›è¡Œæ“ä½œ
+//¶Ô×Ö·û´®½øĞĞ²Ù×÷
 
-//è¿”å›å…³é”®å­—ä¸ºstrå…ƒç´ çš„çˆ¶èŠ‚ç‚¹
+//·µ»Ø¹Ø¼ü×ÖÎªstrÔªËØµÄ¸¸½Úµã
 BSTRee1 ParentNode(BSTRee1 Tree, string str)
 {
 	BSTRee1 parent;
@@ -26,34 +26,34 @@ BSTRee1 ParentNode(BSTRee1 Tree, string str)
 	return parent;
 }
 
-//å°†å­—ç¬¦cæ’å…¥äºŒå‰æ’åºæ ‘
+//½«×Ö·ûc²åÈë¶ş²æÅÅĞòÊ÷
 void insertBSTree(BSTRee1 &Tree, string str)
 {
-	BSTRee1 parent, TNode;	//parentè¿”å›è¦æ’å…¥çš„å­—ç¬¦çš„çˆ¶èŠ‚ç‚¹ï¼ŒTNodeä»£è¡¨è¦æ–°æ’å…¥çš„èŠ‚ç‚¹
+	BSTRee1 parent, TNode;	//parent·µ»ØÒª²åÈëµÄ×Ö·ûµÄ¸¸½Úµã£¬TNode´ú±íÒªĞÂ²åÈëµÄ½Úµã
 
 	TNode = (BSTRee1)malloc(sizeof(struct BST));
 	//TNode->key = (char *)malloc(20 * sizeof(char));
 	TNode->count = 1;
-	strcpy_s(TNode->key, str.c_str());		//å°†stringç±»å‹è½¬æ¢ä¸ºå­—ç¬¦ä¸²æ•°ç»„ç±»å‹
+	strcpy_s(TNode->key, str.c_str());		//½«stringÀàĞÍ×ª»»Îª×Ö·û´®Êı×éÀàĞÍ
 	TNode->lchild = NULL;
 	TNode->rchild = NULL;
-	//å¦‚æœTreeä¸ºç©º
+	//Èç¹ûTreeÎª¿Õ
 	if (Tree == NULL)
 	{
 		Tree = TNode;
 		return;
 	}
-	//å½“å­—ç¬¦cä¸åœ¨äºŒå‰æ’åºæ ‘ä¸­æ—¶,è¿”å›å…¶parentå€¼
+	//µ±×Ö·ûc²»ÔÚ¶ş²æÅÅĞòÊ÷ÖĞÊ±,·µ»ØÆäparentÖµ
 	else if (!serchBSTree(Tree, str))
 	{
 		parent = ParentNode(Tree, str);
-		if (str.compare(parent->key) < 0)		//å…³é”®å€¼æ¯”å…¶çˆ¶èŠ‚ç‚¹å°ï¼Œæ’å…¥ä¸ºå·¦å­©å­èŠ‚ç‚¹
+		if (str.compare(parent->key) < 0)		//¹Ø¼üÖµ±ÈÆä¸¸½ÚµãĞ¡£¬²åÈëÎª×óº¢×Ó½Úµã
 			parent->lchild = TNode;
 		else
 			parent->rchild = TNode;
 		return;
 	}
-	else			//å½“å­—ç¬¦cåœ¨äºŒå‰æ’åºæ ‘ä¸­æ—¶,å…¶countå€¼åŠ 1
+	else			//µ±×Ö·ûcÔÚ¶ş²æÅÅĞòÊ÷ÖĞÊ±,ÆäcountÖµ¼Ó1
 	{
 		if (str.compare(Tree->key) == 0)
 			Tree->count++;
@@ -65,7 +65,7 @@ void insertBSTree(BSTRee1 &Tree, string str)
 	return;
 }
 
-//æŸ¥æ‰¾äºŒå‰æ’åºæ ‘ä¸­æ˜¯å¦æœ‰å…³é”®å­—ä¸ºcçš„å…ƒç´ 
+//²éÕÒ¶ş²æÅÅĞòÊ÷ÖĞÊÇ·ñÓĞ¹Ø¼ü×ÖÎªcµÄÔªËØ
 bool serchBSTree(BSTRee1 Tree, string str)
 {
 	while (Tree)
@@ -81,7 +81,7 @@ bool serchBSTree(BSTRee1 Tree, string str)
 	return false;
 }
 
-//åˆ¤æ–­æ˜¯å¦ä¸ºè‹±æ–‡å­—æ¯:è‹±æ–‡çš„æ ‡ç‚¹ç¬¦å·(, . ? !- : "'ä»¥åŠç©ºæ ¼å­—ç¬¦)
+//ÅĞ¶ÏÊÇ·ñÎªÓ¢ÎÄ×ÖÄ¸:Ó¢ÎÄµÄ±êµã·ûºÅ(, . ? !- : "'ÒÔ¼°¿Õ¸ñ×Ö·û)
 bool isCharacter(char c)
 {
 	if ((48 <= c && c <= 57) || (65 <= c && c <= 90) || (97 <= c && c <= 122))
@@ -90,16 +90,16 @@ bool isCharacter(char c)
 		return false;
 }
 
-//å°†è¾“å…¥çš„å­—ç¬¦ä¸²è½¬æ¢ä¸ºä¸€ä¸ªä¸€ä¸ªå°çš„å­—ç¬¦ä¸²
+//½«ÊäÈëµÄ×Ö·û´®×ª»»ÎªÒ»¸öÒ»¸öĞ¡µÄ×Ö·û´®
 void cToString(BSTRee1 &Tree, string str)
 {
-	char buffer[1000], str1[20] = { ' ' };		//å°†è¾“å…¥çš„stræš‚å­˜è‡³bufferï¼Œstr1å­˜å‚¨å•è¯
+	char buffer[1000], str1[20] = { ' ' };		//½«ÊäÈëµÄstrÔİ´æÖÁbuffer£¬str1´æ´¢µ¥´Ê
 
 	strcpy_s(buffer, str.c_str());
-	strcat_s(buffer, "#");						//åœ¨ç»“æŸä¹‹å‰åŠ ä¸Šä¸€ä¸ª"#"
+	strcat_s(buffer, "#");						//ÔÚ½áÊøÖ®Ç°¼ÓÉÏÒ»¸ö"#"
 	for (int i = 0,k = 0; buffer[i]; i++)
 	{
-		if (isCharacter(buffer[i]))		//åªå¯¹è‹±æ–‡å­—æ¯ä»¥åŠæ•°å­—è¿›è¡ŒäºŒå‰æ’åºæ ‘çš„å­˜å‚¨
+		if (isCharacter(buffer[i]))		//Ö»¶ÔÓ¢ÎÄ×ÖÄ¸ÒÔ¼°Êı×Ö½øĞĞ¶ş²æÅÅĞòÊ÷µÄ´æ´¢
 		{
 			str1[k++] = buffer[i];
 			continue;
@@ -107,7 +107,7 @@ void cToString(BSTRee1 &Tree, string str)
 		str1[k] = 0;
 		if(str1[0] != 0)
 		{
-			string string1(str1);		//åœ¨åˆå§‹åŒ–æ—¶å°†å­—ç¬¦ä¸²æ•°ç»„è½¬æ¢ä¸ºstringç±»å‹
+			string string1(str1);		//ÔÚ³õÊ¼»¯Ê±½«×Ö·û´®Êı×é×ª»»ÎªstringÀàĞÍ
 			insertBSTree(Tree, string1);
 			str1[0] = 0;
 		}
@@ -122,7 +122,7 @@ void visit(BSN *pNode)
 		file << "[" << pNode->key << ":" << pNode->count << "]" << endl;
 }
 
-//å…ˆåºéå†å­—ç¬¦ä¸²
+//ÏÈĞò±éÀú×Ö·û´®
 void preTraversalBSTR(BSTRee1 Tree)
 {
 	if (Tree)
@@ -132,3 +132,4 @@ void preTraversalBSTR(BSTRee1 Tree)
 		preTraversalBSTR(Tree->rchild);
 	}
 }
+
